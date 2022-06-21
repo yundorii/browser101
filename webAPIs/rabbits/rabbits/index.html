@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll</title>
+    <style>
+      body {
+        padding: 8px;
+        text-align: center;
+        background-color: #000;
+      }
+      button {
+        cursor: pointer;
+        border-radius: 12px;
+        background-color: orangered;
+        color: #fff;
+        padding: 12px;
+        font-size: 18px;
+        margin-bottom: 32px;
+      }
+
+      button:hover {
+        transition: all 200ms ease-in-out;
+        transform: scale(1.1);
+      }
+
+      img {
+        margin: 0 auto;
+        display: block;
+        width: 150px;
+        height: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Find a rabbit🐰🥕</button>
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img class="rabbit" src="./img/rabbit.png" alt="rabbit">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <img src="./img/carrot.png" alt="carrot">
+    <script>
+      const button = document.querySelector('button');
+      const rabbit = document.querySelector('.rabbit');
+
+      button.addEventListener('click',()=> {
+        rabbit.scrollIntoView({
+          block:'center',
+          behavior:'smooth'
+        });
+      })
+    </script>
+  </body>
+</html>
