@@ -40,5 +40,19 @@
       <!-- Im comment  -->
     </section>
     <span>Hello World!</span>
+    <script>
+      const section = document.querySelector('section');
+      const h2 = document.createElement('h2');
+      h2.setAttribute('class','title'); // 결과 :  <h2 class="title"></h2>
+      h2.textContent = `This is a title`; // 결과 : <h2 class="title">This is a title</h2>
+      const h3 = document.querySelector('h3');
+      section.insertBefore(h2,h3);
+
+      section.innerHTML = `
+      <img src="img/avatar.png" alt="avatar" />
+      <h1 id="brand">Dream Coding</h1>
+      `
+
+    </script>
   </body>
 </html>
