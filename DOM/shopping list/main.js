@@ -18,34 +18,24 @@ function onAdd() {
   input.focus();
 }
 
+let dataId = 0;
+
 function createItem(text) {
   const itemRow = document.createElement('li');
   itemRow.setAttribute('class','item_row');
-  const divider = document.createElement('div');
-  divider.setAttribute('class','divider');
-  const item = document.createElement('div');
-  item.setAttribute('class','item');
-  const name = document.createElement('span');
-  name.setAttribute('class','item_name')
-  name.textContent = text;
-  const deleteBtn = document.createElement('button');
-  deleteBtn.setAttribute('class','delete_button');
-  deleteBtn.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
+  itemRow.setAttribute('data-id',dataId);
 
-  deleteBtn.addEventListener('click',()=> {
-    if(confirm('이 항목을 삭제하시겠습니까?')) {
-      items.removeChild(itemRow);
-    }
-    input.value = ``;
-    input.focus();
-  })
+  itemRow.innerHTML = `
+  <div class="item">
+    <span class="item_name">${text}</span>
+    <button class="delete_button">
+      <i class="fa-solid fa-trash-can" data-id='${dataId}'></i>
+    </button>
+  </div>
+  <div class="divider"></div>
+  `;
 
-  items.appendChild(itemRow);
-  itemRow.appendChild(item);
-  item.appendChild(name);
-  item.appendChild(deleteBtn);
-  itemRow.appendChild(divider);
-
+  dataId++;
   return itemRow;
 }
 
@@ -62,4 +52,12 @@ resetBtn.addEventListener('click',()=> {
     items.innerHTML= ``;
   }
   return;
+});
+
+items.addEventListener('click',e=> {
+  const id = e.target.dataset.id;
+  if(id) {
+    const toBeDeleted = document.querySelector(`li[data-id="${id}"]`);
+    toBeDeleted.remove();
+  }
 })
