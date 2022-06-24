@@ -1,8 +1,14 @@
 const input = document.querySelector('.footer_input');
+const form = document.querySelector('.new-form');
 const items = document.querySelector('.items');
 const addBtn = document.querySelector('.footer_button');
 
 const resetBtn = document.querySelector('.all_reset');
+
+form.addEventListener('submit',(e)=> {
+  e.preventDefault();
+  onAdd();
+})
 
 function onAdd() {
   const text = input.value;
@@ -13,6 +19,7 @@ function onAdd() {
   const item = createItem(text);
   items.appendChild(item);
   item.scrollIntoView({block: 'center'});
+
 
   input.value = ``;
   input.focus();
@@ -39,14 +46,6 @@ function createItem(text) {
   return itemRow;
 }
 
-addBtn.addEventListener('click',onAdd);
-
-input.addEventListener('keydown',(e)=> {
-  if(e.keyCode === 13) {
-    onAdd();
-  }
-})
-
 resetBtn.addEventListener('click',()=> {
   if(confirm('전체삭제를 하시겠습니까?')) {
     items.innerHTML= ``;
@@ -60,4 +59,6 @@ items.addEventListener('click',e=> {
     const toBeDeleted = document.querySelector(`li[data-id="${id}"]`);
     toBeDeleted.remove();
   }
-})
+});
+
+const inputHi = document.querySelector('.hi');
