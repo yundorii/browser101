@@ -48,6 +48,7 @@ button {
 }
 
 .game_timer {
+  visibility: hidden;
   text-align: center;
   width: 100px;
   font-size: 30px;
@@ -58,6 +59,7 @@ button {
 }
 
 .game_score {
+  visibility: hidden;
   text-align: center;
   width: 60px;
   height: 60px;
@@ -104,4 +106,14 @@ button {
 .pop-up_message {
   display: block;
   font-size: 38px;
+}
+
+.carrot,
+.bug {
+  cursor: pointer;
+}
+
+.carrot:hover,
+.bug:hover {
+  transform: scale(1.05);
 }
